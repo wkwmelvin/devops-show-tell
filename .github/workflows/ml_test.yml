@@ -16,4 +16,16 @@ jobs:
           pip install scikit-learn==0.21.2
       - run: |
           output=$(python test.py)
-          echo $output
+          condition='deploy'
+          if [ "$output" = "$condition" ]; then
+            echo '::set-output name=status::success'
+          
+          else
+            echo '::set-output name=status::failed'
+          fi
+        id: model-test
+        
+      - if: steps.model-test.outputs.status != 'success'
+        run: |
+          echo ${{ steps.model-test.outputs.status }}
+          exit 1
