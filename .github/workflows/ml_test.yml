@@ -33,7 +33,6 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          #token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          token: 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
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           event-type: my-event
           
