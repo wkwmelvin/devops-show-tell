@@ -1,6 +1,8 @@
 name: deploy
 
-on: pull_request
+on:
+  repository_dispatch:
+    types: [my-event]
 
 jobs:
   deploy-to-cloud:
