@@ -1,6 +1,6 @@
 name: deploy
 
-on: pull
+on: pull_request
 
 jobs:
   deploy-to-cloud:
