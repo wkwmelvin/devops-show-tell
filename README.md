@@ -32,7 +32,7 @@ A bike rental company wants to develop an application that allows customers to r
 </p>
 
 <p align="center">
-  <img src="https://github.com/wkwmelvin/devops-show-tell/blob/main/confirmation%20page.png">
+  <img src="https://github.com/wkwmelvin/devops-show-tell/blob/main/confirmation_page.png">
 </p>
 <p align="justify">
   <em>Figure 2: The bike rental confirmation page. </em>
