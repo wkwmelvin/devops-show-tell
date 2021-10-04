@@ -8,31 +8,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: install python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pandas
-          pip install Cython
-          pip install scikit-learn==0.21.2
-      - run: |
-          output=$(python test.py)
-          condition='deploy'
-          if [ "$output" = "$condition" ]; then
-            echo '::set-output name=status::success'
+      #- name: install python dependencies
+       # run: |
+       #   python -m pip install --upgrade pip
+       #   pip install pandas
+       #   pip install Cython
+       #   pip install scikit-learn==0.21.2
+      #- run: |
+       #   output=$(python test.py)
+        #  condition='deploy'
+         # if [ "$output" = "$condition" ]; then
+          #  echo '::set-output name=status::success'
           
-          else
-            echo '::set-output name=status::failed'
-          fi
-        id: model-test
+          #else
+           # echo '::set-output name=status::failed'
+          #fi
+        #id: model-test
         
-      - if: steps.model-test.outputs.status != 'failed'
-        run: |
-          echo ${{ steps.model-test.outputs.status }}
-          exit 1
+     # - if: steps.model-test.outputs.status != 'failed'
+     #   run: |
+      #    echo ${{ steps.model-test.outputs.status }}
+     #     exit 1
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          #token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: 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
           event-type: my-event
           
