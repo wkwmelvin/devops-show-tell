@@ -25,7 +25,7 @@ jobs:
           fi
         id: model-test
         
-      - if: steps.model-test.outputs.status != 'success'
+      - if: steps.model-test.outputs.status != 'failed'
         run: |
           echo ${{ steps.model-test.outputs.status }}
           exit 1
