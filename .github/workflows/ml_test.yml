@@ -1,7 +1,11 @@
 name: Test-ML-Model
 
 #triggers only when model.pkl is updated with a new ML model
-on: push
+#on: push
+on:
+  push:
+    paths:
+      - 'model.pkl'
 
 jobs:
   test-ml-model:
