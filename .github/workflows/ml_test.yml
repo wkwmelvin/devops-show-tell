@@ -18,7 +18,8 @@ jobs:
           pip install pandas
           pip install Cython
           pip install scikit-learn==0.21.2
-      - run: |
+      - name: run ML model performance test script
+        run: |
           output=$(python test.py)
           condition='deploy'
           if [ "$output" = "$condition" ]; then
@@ -29,17 +30,20 @@ jobs:
           fi
         id: model-test
         
-      - if: steps.model-test.outputs.status != 'success'
+      - name: stop workflow if new model does not perform better than previous model
+        if: steps.model-test.outputs.status != 'success'
         run: |
           echo ${{ steps.model-test.outputs.status }}
           exit 1
 
+      #to trigger deployment workflow
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.NEW_TOKEN }}
           event-type: my-event
-
+      
+      #to commit the new performance results to ml_metric.txt
       - name: switching from HTTPS to SSH
         run: git remote set-url origin ${{ secrets.GITHUB_TOKEN }}
       - name: check for changes
