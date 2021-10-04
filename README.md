@@ -5,7 +5,7 @@ A bike rental company wants to develop an application that allows customers to r
 - user interface to get customer's personal info, location, the number of bikes
 - display a rental confirmation and the price of the rental
 
-Other considerations:
+### Other considerations:
 - Would like to deploy as soon as possible
 - Make improvements to application along the way:
   - better website design (via CSS, JavaScript)
@@ -17,10 +17,11 @@ Other considerations:
 - ml_test.yml (workflow for ML model testing)
 - index.html (main user interface page)
 - confirmation.html (bike rental confirmation page)
-- app.py (backend code)
-- test.py (for testing ML model)
+- app.py (python backend code)
+- test.py (python script for testing ML model)
 - model.pkl (machine learning model)
 - data.csv (data for testing ML model)
+- ml_metric.txt (to store current machine learning model's performance)
 
 ## The Web Application:
 <p align="center">
