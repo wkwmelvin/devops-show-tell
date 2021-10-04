@@ -1,1 +1,13 @@
+name: Test-ML-Model
 
+#triggers only when model.pkl is updated with a new ML model
+on: push
+
+jobs:
+  test-ml-model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - run: |
+          output=$(python test.py)
+          echo $output
